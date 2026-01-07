@@ -3,28 +3,225 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Om Nimloth — beslutningsstøtte til rekruttering." />
   <title>Om Nimloth</title>
-  <meta name="description" content="Om Nimloth – beslutningsstøtte til rekruttering" />
+
+  <style>
+    :root{
+      --bg0:#070a08;
+      --bg1:#0c120e;
+      --card:#0f1a14cc;
+      --stroke:rgba(31,58,45,.7);
+      --text:#e9f1ec;
+      --muted:#b8c7bf;
+      --accent:#76d39a;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 15%, rgba(118,211,154,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
+    }
+
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 16px}
+
+    .top{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;margin-bottom:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:44px;height:44px;
+      object-fit:contain;
+      border-radius:12px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,.35));
+    }
+    .name{font-weight:700;letter-spacing:.2px}
+    .badge{
+      display:inline-block;
+      font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(118,211,154,.28);
+      background: rgba(15,26,20,.65);
+      color:var(--muted);
+      margin-top:2px;
+      width:fit-content;
+    }
+
+    .page{
+      border:1px solid rgba(31,58,45,.55);
+      border-radius:26px;
+      overflow:hidden;
+      background: rgba(7,10,8,.28);
+      box-shadow: var(--shadow);
+    }
+
+    .page-head{
+      padding:22px 24px;
+      border-bottom:1px solid rgba(31,58,45,.55);
+      background:
+        radial-gradient(800px 300px at 20% 0%, rgba(118,211,154,.10), transparent 60%);
+    }
+    h1{
+      margin:0 0 8px 0;
+      font-size:34px;
+      line-height:1.12;
+      letter-spacing:-.3px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:80ch;
+    }
+
+    .content{
+      padding:22px 24px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+    }
+    @media (max-width: 900px){
+      .content{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid rgba(31,58,45,.55);
+      background: rgba(15,26,20,.55);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    h2{
+      margin:0 0 10px 0;
+      font-size:14px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+
+    p{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      line-height:1.7;
+      max-width:80ch;
+    }
+    strong{color:var(--text)}
+
+    .cta-row{
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;
+    }
+    .cta{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(118,211,154,.35);
+      background: rgba(7,10,8,.35);
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
+    }
+    .cta:hover{border-color:var(--accent)}
+
+    ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+    li{margin:6px 0}
+
+    footer{
+      margin-top:16px;
+      padding:14px 18px;
+      border-top:1px solid rgba(31,58,45,.55);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:var(--muted); font-size:12px;
+    }
+    footer a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(118,211,154,.35);
+    }
+    footer a:hover{
+      color:var(--text);
+      border-bottom-color:var(--accent);
+    }
+    .footer-links{display:flex;gap:8px;flex-wrap:wrap}
+    .footer-links span{opacity:.55}
+  </style>
 </head>
 
 <body>
-  <main style="max-width:800px;margin:60px auto;padding:0 16px;">
-    <h1>Om Nimloth</h1>
+  <div class="wrap">
 
-    <p>
-      Nimloth er et beslutningsstøttesystem til rekruttering, udviklet til organisationer, der tager ansvar for deres valg.
-    </p>
+    <div class="top">
+      <div class="brand">
+        <img class="logo" src="/assets/logo-nimloth.png" alt="Nimloth logo" />
+        <div>
+          <div class="name">Nimloth</div>
+          <div class="badge">Under udvikling</div>
+        </div>
+      </div>
+      <div class="badge">Decision support for hiring</div>
+    </div>
 
-    <p>
-      Systemet er skabt til situationer, hvor mange kvalificerede kandidater konkurrerer om opmærksomheden, og hvor traditionelle signaler som CV’er, keywords og mavefornemmelser ikke er tilstrækkelige. Nimloth hjælper med at skabe overblik ved at samle virksomhedens egne prioriteringer og kandidaternes faktiske input i én sammenhængende analyse.
+    <main class="page">
+      <header class="page-head">
+        <h1>Om Nimloth</h1>
+        <p class="subtitle">
+          Nimloth er et beslutningsstøttesystem til rekruttering, designet til at skabe klarhed i komplekse kandidatfelter
+          uden at automatisere menneskelig dømmekraft væk.
+        </p>
+      </header>
 
-I stedet for at score eller vælge kandidater gør Nimloth noget andet:
-det synliggør forskelle, spændinger og trade-offs, som ellers let overses under tidspres.
+      <section class="content">
+        <article class="card">
+          <h2>Hvad Nimloth gør</h2>
+          <p>
+            Når mange kvalificerede kandidater konkurrerer om din opmærksomhed, hjælper Nimloth med at synliggøre
+            relevante forskelle, trade-offs og risici — på en måde, der kan forklares og dokumenteres.
+          </p>
+          <p>
+            <strong>Systemet informerer beslutningen. Mennesket træffer den.</strong>
+          </p>
 
-AI anvendes til at sammenfatte, perspektivere og reducere kompleksitet – ikke til at træffe beslutninger. Alle vurderinger kan forklares, og alle valg forbliver menneskelige.
+          <div class="cta-row">
+            <a class="cta" href="/kontakt.html">Kontakt (pilot)</a>
+            <a class="cta" href="/vision.html">Læs vores vision</a>
+            <a class="cta" href="/">Tilbage til forsiden</a>
+          </div>
+        </article>
 
-Nimloth er bygget til ledere, der ønsker bedre indsigt før beslutningen – og mulighed for at stå på mål for den bagefter.
-    </p>
-  </main>
+        <aside class="card">
+          <h2>Nimloth er relevant hvis</h2>
+          <ul>
+            <li>I arbejder med komplekse kandidatfelter og begrænset beslutningstid</li>
+            <li>I har brug for indsigt i <em>hvorfor</em> kandidater adskiller sig — ikke bare hvordan</li>
+            <li>I prioriterer forklarbarhed, ansvar og dokumentation i rekruttering</li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Nimloth</div>
+      <div class="footer-links">
+        <a href="/om.html">Om Nimloth</a><span aria-hidden="true">·</span>
+        <a href="/vision.html">Vores vision</a><span aria-hidden="true">·</span>
+        <a href="/kontakt.html">Kontakt</a><span aria-hidden="true">·</span>
+        <a href="/privacy.html">Privatliv</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
