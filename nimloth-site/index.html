@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Nimloth — where potential takes root." />
+  <title>Nimloth — where potential takes root</title>
+
+  <style>
+    :root{
+      --bg0:#070a08;
+      --bg1:#0c120e;
+      --card:#0f1a14cc;
+      --stroke:rgba(31,58,45,.7);
+      --text:#e9f1ec;
+      --muted:#b8c7bf;
+      --accent:#76d39a;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 15%, rgba(118,211,154,.18), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      min-height:100vh;
+    }
+
+    /* BREDERE SIDE */
+    .wrap{
+      max-width:1280px;
+      margin:0 auto;
+      padding:32px 24px;
+    }
+
+    .top{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;margin-bottom:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(118,211,154,.28);
+      background:linear-gradient(135deg, rgba(118,211,154,.18), rgba(118,211,154,.06));
+    }
+    .name{font-weight:700;letter-spacing:.2px}
+    .badge{
+      display:inline-block;
+      font-size:12px;padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(118,211,154,.28);
+      background: rgba(15,26,20,.65);
+      color:var(--muted);
+      margin-top:2px;
+      width:fit-content;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      border:1px solid rgba(31,58,45,.55);
+      border-radius:26px;
+      overflow:hidden;
+      background: rgba(7,10,8,.28);
+      box-shadow: var(--shadow);
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .copy{padding:28px}
+    h1{
+      margin:0 0 12px 0;
+      font-size:40px;
+      line-height:1.08;
+      letter-spacing:-.4px;
+    }
+    p{
+      margin:0 0 12px 0;
+      color:var(--muted);
+      line-height:1.65;
+      max-width:70ch;
+    }
+
+    .cta{
+      display:inline-block;
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(118,211,154,.35);
+      background: rgba(7,10,8,.35);
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
+      text-align:center;
+    }
+    .cta:hover{border-color:var(--accent)}
+
+    .panel{
+      border-left:1px solid rgba(31,58,45,.55);
+      padding:20px;
+      display:grid;
+      place-items:center;
+      background:
+        radial-gradient(600px 400px at 50% 40%, rgba(118,211,154,.14), transparent 60%);
+    }
+    @media (max-width: 900px){
+      .panel{border-left:none;border-top:1px solid rgba(31,58,45,.55)}
+    }
+
+    /* Tree hero + rotation */
+    .tree-hero{
+      width:100%;
+      display:grid;
+      place-items:center;
+      padding:16px;
+    }
+
+    .tree-rotation{
+      position:relative;
+      width:420px;
+      max-width:100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .tree-rotation img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:18px;
+      opacity:0;
+      transition:opacity 1.6s ease-in-out;
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.45),
+        0 0 120px rgba(118,211,154,.18);
+      display:block;
+    }
+    .tree-rotation img.active{opacity:1}
+
+    /* CTA under billedet i højre panel */
+    .cta-panel{
+      margin-top:20px;
+      padding:12px 18px;
+    }
+
+    .checklist{
+      margin-top:16px;
+      border:1px solid rgba(31,58,45,.55);
+      background: rgba(15,26,20,.55);
+      border-radius:18px;
+      padding:14px;
+    }
+    .checklist h3{
+      margin:0 0 10px 0;
+      font-size:12px;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+    .item{display:flex;gap:10px;align-items:flex-start;color:var(--text);font-size:14px}
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      margin-top:5px;
+      background: rgba(118,211,154,.55);
+      border:1px solid rgba(118,211,154,.35);
+      flex:0 0 auto;
+    }
+    .item span{color:var(--muted)}
+    .item em{color:var(--text);font-style:italic}
+
+    footer{
+      margin-top:16px;
+      padding:14px 18px;
+      border-top:1px solid rgba(31,58,45,.55);
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:var(--muted); font-size:12px;
+    }
+    footer a{
+      color:var(--muted);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(118,211,154,.35);
+    }
+    footer a:hover{
+      color:var(--text);
+      border-bottom-color:var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="top">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="name">Nimloth</div>
+          <div class="badge">Under udvikling</div>
+        </div>
+      </div>
+      <div class="badge">where potential takes root</div>
+    </div>
+
+    <main class="hero">
+      <section class="copy">
+        <h1>
+          Nimloth er et beslutningsstøttesystem<br />
+          til rekruttering.
+        </h1>
+
+        <p>
+          Når mange kvalificerede kandidater konkurrerer om din opmærksomhed,
+          hjælper Nimloth dig med at skabe klarhed i komplekse beslutninger – ved at
+          synliggøre relevante forskelle, trade-offs og risici.
+        </p>
+
+        <p>
+          Systemet informerer beslutningen. Mennesket træffer den.
+        </p>
+
+        <p>
+          Systemet prioriterer kandidater ud fra <em>jeres egne kriterier</em>, baseret på den jobkontekst I selv definerer,
+          og de signaler kandidaterne viser i deres ansøgning.
+        </p>
+
+        <div class="checklist">
+          <h3>Nimloth er relevant for jer, hvis I:</h3>
+          <ul class="list">
+            <li class="item"><span class="dot" aria-hidden="true"></span><span>Arbejder med komplekse kandidatfelter og begrænset beslutningstid</span></li>
+            <li class="item"><span class="dot" aria-hidden="true"></span><span>Har brug for indsigt i hvorfor kandidater adskiller sig – ikke bare hvordan</span></li>
+            <li class="item"><span class="dot" aria-hidden="true"></span><span>Prioriterer forklarbarhed, ansvar og dokumentation i rekruttering</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <div class="tree-hero" aria-label="Nimloth træ — udvikling i fire trin">
+
+          <!-- Sørg for at disse filer findes PRÆCIST her:
+               /assets/tree-1.webp
+               /assets/tree-2.webp
+               /assets/tree-3.webp
+               /assets/tree-4.webp
+          -->
+          <div class="tree-rotation" aria-hidden="true">
+            <img src="/assets/tree-1.webp" alt="" class="active" loading="eager" decoding="async">
+            <img src="/assets/tree-2.webp" alt="" loading="lazy" decoding="async">
+            <img src="/assets/tree-3.webp" alt="" loading="lazy" decoding="async">
+            <img src="/assets/tree-4.webp" alt="" loading="lazy" decoding="async">
+          </div>
+
+          <a class="cta cta-panel" href="/kontakt.html">Kontakt (pilot)</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Nimloth</div>
+      <div>
+        <a href="/kontakt.html">Kontakt</a>
+        <span style="opacity:.55"> · </span>
+        <a href="/privacy.html">Privatliv</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Årstal i footer
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Rotation af træ-billeder (cross-fade)
+    const frames = document.querySelectorAll(".tree-rotation img");
+    let i = 0;
+
+    setInterval(() => {
+      frames[i].classList.remove("active");
+      i = (i + 1) % frames.length;
+      frames[i].classList.add("active");
+    }, 3500);
+  </script>
+</body>
+</html>

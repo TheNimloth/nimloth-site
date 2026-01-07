@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nimloth — Privatliv</title>
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:#070a08;color:#e9f1ec}
+    .wrap{max-width:900px;margin:0 auto;padding:32px 16px}
+    a{color:#76d39a;text-decoration:none;border-bottom:1px dotted rgba(118,211,154,.5)}
+    a:hover{border-bottom-color:#76d39a}
+    .card{border:1px solid rgba(31,58,45,.7);border-radius:18px;padding:20px;background:rgba(15,26,20,.6)}
+    h1{margin:0 0 10px 0}
+    p{color:#b8c7bf;line-height:1.6}
+    .small{font-size:12px;color:#b8c7bf}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="small"><a href="/">← Tilbage</a></p>
+    <div class="card">
+      <h1>Privatliv</h1>
+      <p>
+        Nimloth er under udvikling. Denne side er en placeholder.
+        Når Nimloth åbner for pilotkunder, vil vi her beskrive, hvilke data der indsamles, til hvilke formål,
+        og hvordan de behandles.
+      </p>
+      <p>
+        Vi arbejder efter principper om dataminimering, formålsbegrænsning og sporbarhed (audit).
+      </p>
+      <p class="small">Senest opdateret: <span id="d"></span></p>
+    </div>
+  </div>
+  <script>
+    document.getElementById("d").textContent = new Date().toLocaleDateString("da-DK");
+  </script>
+</body>
+</html>
